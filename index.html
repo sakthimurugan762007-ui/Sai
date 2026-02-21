@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Front-End Seminar Registration</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f6f9;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 80%;
+    margin: 20px auto;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+h1, h2 {
+    text-align: center;
+    color: #333;
+}
+
+.event-info ul {
+    list-style: none;
+    padding: 0;
+}
+
+.event-info li {
+    padding: 5px 0;
+}
+
+fieldset {
+    margin-bottom: 15px;
+    padding: 15px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+legend {
+    font-weight: bold;
+    padding: 0 5px;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+    width: auto;
+}
+
+.buttons {
+    text-align: center;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.submit-btn {
+    background-color: #28a745;
+    color: white;
+}
+
+.reset-btn {
+    background-color: #dc3545;
+    color: white;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+table, th, td {
+    border: 1px solid #ccc;
+}
+
+th, td {
+    padding: 8px;
+    text-align: center;
+}
+
+footer {
+    text-align: center;
+    margin-top: 20px;
+    padding: 10px;
+    background: #222;
+    color: white;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Seminar Event</h1>
+
+<!-- Event Information Section -->
+<section class="event-info">
+<h2>Event Information</h2>
+<ul>
+<li><strong>Event Date:</strong> March 15, 2026</li>
+<li><strong>Time:</strong> 10:00 AM – 4:00 PM</li>
+<li><strong>Venue:</strong> Tech Convention Hall</li>
+<li><strong>Organizer Name:</strong> Coding Academy</li>
+</ul>
+</section>
+
+<!-- Registration Form -->
+<h2>Registration Form</h2>
+
+<form id="registrationForm">
+
+<!-- Personal Information -->
+<fieldset>
+<legend>Personal Information</legend>
+
+<label>Name:</label>
+<input type="text" id="name" required>
+
+<label>Email:</label>
+<input type="email" id="email" required>
+
+<label>Phone Number:</label>
+<input type="tel" id="phone" required>
+
+<label>Date of Birth:</label>
+<input type="date" id="dob" required>
+
+<label>Gender:</label>
+<input type="radio" name="gender" value="Male"> Male
+<input type="radio" name="gender" value="Female"> Female
+<input type="radio" name="gender" value="Other"> Other
+</fieldset>
+
+<!-- Event Selection -->
+<fieldset>
+<legend>Event Selection</legend>
+
+<label>Select Event:</label>
+<select id="event">
+<option value="">-- Select Event --</option>
+<option>Workshop</option>
+<option>Bootcamp</option>
+<option>Webinar</option>
+</select>
+
+<label>Mode of Participation:</label>
+<input type="radio" name="mode" value="Online"> Online
+<input type="radio" name="mode" value="Offline"> Offline
+</fieldset>
+
+<!-- Additional Details -->
+<fieldset>
+<legend>Additional Details</legend>
+
+<label>College / Company Name:</label>
+<input type="text" id="organization">
+
+<label>Upload ID Proof:</label>
+<input type="file" id="idproof">
+
+<label>Comments / Expectations:</label>
+<textarea id="comments" rows="3"></textarea>
+
+<label>
+<input type="checkbox" id="declaration">
+I confirm that the above details are correct.
+</label>
+</fieldset>
+
+<!-- Form Controls -->
+<div class="buttons">
+<button type="submit" class="submit-btn">Submit</button>
+<button type="reset" class="reset-btn">Reset</button>
+</div>
+
+</form>
+
+<!-- Registered Participants Section -->
+<h2>Registered Participants</h2>
+
+<table>
+<tr>
+<th>Name</th>
+<th>Email</th>
+<th>Phone</th>
+<th>Event</th>
+<th>Mode</th>
+</tr>
+<tr>
+<td>John Doe</td>
+<td>john@example.com</td>
+<td>9876543210</td>
+<td>Workshop</td>
+<td>Offline</td>
+</tr>
+</table>
+
+</div>
+
+<!-- Footer -->
+<footer>
+<p>Contact Email: support@codingacademy.com | Help Desk: +91 98765 43210</p>
+<p>© 2026 Coding Academy. All Rights Reserved.</p>
+</footer>
+
+<script>
+document.getElementById("registrationForm").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+    let phone = document.getElementById("phone").value;
+    let event = document.getElementById("event").value;
+    let declaration = document.getElementById("declaration").checked;
+
+    if(name === "" || email === "" || phone === "" || event === ""){
+        alert("Please fill all required fields!");
+        return;
+    }
+
+    if(!declaration){
+        alert("Please confirm the declaration!");
+        return;
+    }
+
+    alert("Registration Successful!");
+});
+</script>
+
+</body>
+</html>
